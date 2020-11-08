@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Locations.Application.Interfaces
 {
-    interface IImageSpecific
+    public interface IImageSpecific
     {
         Task<SearchImage> GetLocations(ImageParameters imageParameters);
     }
