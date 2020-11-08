@@ -9,6 +9,6 @@ namespace Locations.Application.Interfaces
 {
     public interface IImageSpecific
     {
-        Task<SearchImage> GetLocations(ImageParameters imageParameters);
+        Task<SearchImage> GetImageDetails(ImageParameters imageParameters);
     }
 }
