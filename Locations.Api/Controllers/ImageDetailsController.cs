@@ -10,19 +10,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Locations.Api.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
-    public class ImageDetailsController : ControllerBase
+    public class ImagedetailsController : ControllerBase
     {
         private readonly ImageSpecific _requestService;
 
-        public ImageDetailsController(ImageSpecific requestService)
+        public ImagedetailsController(ImageSpecific requestService)
         {
             _requestService = requestService;
         }
 
         [HttpPost]
-        public async Task<SearchImage> GetListLocations(ImageParameters imageParameters)
+        public async Task<SearchImage> GetImageDetails(ImageParameters imageParameters)
 
         {
             var result = await _requestService.GetImageDetails(imageParameters);

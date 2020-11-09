@@ -11,13 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Locations.Api.Controllers
 {
+  
     [Route("api/[controller]")]
     [ApiController]
-    public class ImagesForLocationController : ControllerBase
+    public class ImagesforlocationController : ControllerBase
     {
         private readonly ListImages _requestService;
 
-        public ImagesForLocationController(ListImages requestService)
+        public ImagesforlocationController(ListImages requestService)
         {
             _requestService = requestService;
         }
