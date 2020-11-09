@@ -91,6 +91,7 @@ namespace Locations.Api.Controllers
                 return BadRequest(ModelState);
             }
 
+            users.DateCreated = DateTime.Now;
             _context.Users.Add(users);
             await _context.SaveChangesAsync();
 

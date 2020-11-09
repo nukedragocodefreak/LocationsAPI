@@ -62,7 +62,7 @@ namespace Locations.Api
             });
 
             services.AddDbContext<LocationsApiContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("LocationsApiContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
           
         }
