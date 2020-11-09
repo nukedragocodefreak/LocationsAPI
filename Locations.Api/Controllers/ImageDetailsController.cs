@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Locations.Api.Controllers
 {
-   
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class ImagedetailsController : ControllerBase
