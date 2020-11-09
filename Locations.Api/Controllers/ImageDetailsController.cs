@@ -29,5 +29,7 @@ namespace Locations.Api.Controllers
             var result = await _requestService.GetImageDetails(imageParameters);
             return result;
         }
+
+
     }
 }

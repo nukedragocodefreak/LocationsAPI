@@ -26,8 +26,9 @@ namespace Locations.Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<IEnumerable<string>> Post()
         {
+            return new string[] { "value1", "value2" };
         }
 
         // PUT api/values/5

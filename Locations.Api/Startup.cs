@@ -35,11 +35,12 @@ namespace Locations.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             //services.AddScoped<IStarWars, StarWars>();
 
-            services.AddScoped<IImageSpecific, ImageSpecific>();
-            services.AddScoped<IListImages, ListImages>();
-            services.AddScoped<IListLocations, ListLocations>();
+            services.AddScoped<ImageSpecific>();
+            services.AddScoped<ListImages>();
+            services.AddScoped<ListLocations>();
 
             services.AddSwaggerGen(c =>
             {
