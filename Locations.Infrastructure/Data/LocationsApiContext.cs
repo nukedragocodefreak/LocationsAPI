@@ -15,5 +15,7 @@ namespace Locations.Api.Models
         }
 
         public DbSet<Locations.Core.Models.Users.Users> Users { get; set; }
+        public DbSet<Locations.Core.Models.SavedData.SavedImages> Images { get; set; }
+        public DbSet<Locations.Core.Models.SavedData.SavedLocations> Locations { get; set; }
     }
 }

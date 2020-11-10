@@ -17,6 +17,7 @@ namespace Locations.Infrastructure.Repositories
             var searchimage = new SearchImage();
             var result = await Urls.GetStringAsync(Urls.BaseUri+ "photos/"+imageParameters.PhotoID+ "?client_id="+Urls.client_id + "&client_secret="+Urls.client_secret+ "&v=20190425");
             //https://api.foursquare.com/v2/photos/5fa691869e81c46739fde8f5?client_id=3QLIE2CJOVDRDUPC005VKY5S14ONGS4LJH3V12GVYS3IIYDR&client_secret=4H43YM0HRH3LUNI0WD3A2FRHJVMOFGTKA1FI1JB3XCQKOOIL&v=20190425
+
             var result_image = JsonConvert.DeserializeObject<SearchImage>(result);
             return result_image;
          
