@@ -10,6 +10,8 @@ using Locations.Core.Models.SavedData;
 
 namespace Locations.Api.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class SavedImagesController : ControllerBase

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Locations.Api.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

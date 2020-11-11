@@ -22,7 +22,6 @@ namespace Locations.Infrastructure.Repositories
             _context = context;
         }
 
-
         public async Task<SearchVenues> GetLocations(VenueParameters venueParameters)
         {
 
@@ -32,13 +31,8 @@ namespace Locations.Infrastructure.Repositories
             //https://api.foursquare.com/v2/venues/search?client_id=3QLIE2CJOVDRDUPC005VKY5S14ONGS4LJH3V12GVYS3IIYDR&client_secret=4H43YM0HRH3LUNI0WD3A2FRHJVMOFGTKA1FI1JB3XCQKOOIL&v=20190425&near=harare&intent=browse&radius=10000&limit=10
             var result_venues = JsonConvert.DeserializeObject<SearchVenues>(result);
 
-           // SavedLocations savelocations,JSON_result;
-  
-            SavedLocations[] locations = new SavedLocations[result_venues.response.venues.Length];
-
             for (int i = 0; i < result_venues.response.venues.Length; i++)
             {
-
 
                 var savelocations = new SavedLocations
                 {
@@ -51,15 +45,11 @@ namespace Locations.Infrastructure.Repositories
                     Latitude = result_venues.response.venues[i].location.lat.ToString(),
                     Longitude = result_venues.response.venues[i].location.lng.ToString()
                 };
-                //locations[i] = savelocations;
+              
                 _context.Locations.Add(savelocations);
                 await _context.SaveChangesAsync();
             }
-           // var JSON_result = JsonConvert.SerializeObject(savelocations);
-
-         
-           
-
+          
             return result_venues;
         }
     }

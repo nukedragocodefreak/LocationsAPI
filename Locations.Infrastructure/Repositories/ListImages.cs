@@ -1,6 +1,8 @@
-﻿using Locations.Application.Interfaces;
+﻿using Locations.Api.Models;
+using Locations.Application.Interfaces;
 using Locations.Core.Models.Images;
 using Locations.Core.Models.Parameters;
+using Locations.Core.Models.SavedData;
 using Locations.Infrastructure.Utility;
 using Newtonsoft.Json;
 using System;
@@ -12,13 +14,37 @@ namespace Locations.Infrastructure.Repositories
 {
     public class ListImages : IListImages
     {
+        private readonly LocationsApiContext _context;
+
+        public ListImages(LocationsApiContext context)
+        {
+            _context = context;
+        }
+
         public async Task<SearchImages> GetImageLocations(ImagesParameters imageParameters)
         {
             var searchimages = new SearchImages();
             imageParameters.Group = "venue";
             var result = await Urls.GetStringAsync(Urls.BaseUri+ "venues/"+imageParameters.VenueID+ "/photos?client_id="+Urls.client_id+ "&client_secret="+Urls.client_secret+ "&v=20190425&group=" + imageParameters.Group+ "&limit="+ imageParameters.Limit);
-            //https://api.foursquare.com/v2/venues/4b81bd7af964a5202fbb30e3/photos?client_id=3QLIE2CJOVDRDUPC005VKY5S14ONGS4LJH3V12GVYS3IIYDR&client_secret=4H43YM0HRH3LUNI0WD3A2FRHJVMOFGTKA1FI1JB3XCQKOOIL&v=20190425&group=venue&limit=10
+            
             var result_images = JsonConvert.DeserializeObject<SearchImages>(result);
+
+            for(int i = 0; i < result_images.response.photos.items.Length; i++ )
+            {
+                var saveimages = new SavedImages
+                {
+                    Id = result_images.response.photos.items[i].id,
+                    CreatedAt = result_images.response.photos.items[i].createdAt.ToString(),
+                    Prefix = result_images.response.photos.items[i].prefix,
+                    Suffix = result_images.response.photos.items[i].suffix,
+                    Height = result_images.response.photos.items[i].height,
+                    Width = result_images.response.photos.items[i].width
+                };
+
+                _context.Images.Add(saveimages);
+                await _context.SaveChangesAsync();
+            }
+           
             return result_images;
         }
     }

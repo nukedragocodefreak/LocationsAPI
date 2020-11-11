@@ -10,6 +10,8 @@ using Locations.Api.Models;
 
 namespace Locations.Api.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
