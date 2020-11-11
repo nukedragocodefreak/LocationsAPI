@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Images](
+	[Id] [varchar](50) NOT NULL,
+	[CreatedAt] [varchar](50) NULL,
+	[Prefix] [varchar](150) NULL,
+	[Suffix] [varchar](150) NULL,
+	[Width] [int] NULL,
+	[Height] [int] NULL
+) ON [PRIMARY]

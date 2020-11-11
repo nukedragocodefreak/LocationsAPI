@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Locations](
+	[Id] [varchar](50) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[Address] [varchar](50) NULL,
+	[CrossStreet] [varchar](50) NULL,
+	[Latitude] [varchar](50) NULL,
+	[Longitude] [varchar](50) NULL,
+	[City] [varchar](50) NULL,
+	[Image] [varchar](150) NULL,
+	[Country] [varchar](50) NULL
+) ON [PRIMARY]
